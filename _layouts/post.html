@@ -1,0 +1,35 @@
+<html lang="en">
+  <head>
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <header>
+      <h1>labs.Penger.no</h1>
+      <a href="http://github.com/pengerno"><i class="fa fa-github-square"></i></a>
+    </header>
+    <section>
+      <h1>{{ page.title }}</h1>
+      <div>
+        <h3>Tags</h3>
+        <ul class="tags">
+          {% for tag in page.tags %}
+            <li>{{ tag }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {{ content }}
+    </section>
+    <aside>
+      <h2>Blog posts</h2>
+      <ul class="posts">
+        {% for post in site.posts %}
+          <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </aside>
+    <footer>
+    </footer>
+  </body>
+</html>
