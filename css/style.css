@@ -23,6 +23,10 @@ body > header h1{
   padding: 0 10px;
 }
 
+section{
+  margin: 10px 0;
+}
+
 a {
   color: #46917f;
 

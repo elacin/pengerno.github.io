@@ -3,12 +3,14 @@ layout: default
 title: labs.Penger.no
 ---
 
-<a href="http://github.com/pengerno"><i class="fa fa-github-square"></i></a>
+<section>
+  <a href="http://github.com/pengerno"><i class="fa fa-github-square"></i></a>
 
-<h2>Blog posts</h2>
+  <h2>Blog posts</h2>
 
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
