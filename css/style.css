@@ -12,7 +12,7 @@ body > header{
   background-color: #46917f; 
 }
 
-body > header > h1{
+body > header h1{
   height: auto;
   line-height: 60px
 }
