@@ -3,6 +3,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body > header{
+  margin: 0 auto;
+  max-width: 1040px;
+  padding: 0 10px;
+  color: #000;
+  background-color: #46917f; 
+}
+
 a {
   color: #46917f;
 
