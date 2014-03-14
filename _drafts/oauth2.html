@@ -40,7 +40,9 @@ tags: OAuth2
 <code>
   https://authentication.server/login/path?parameters
 </code>
-  
+
+The parameters are:
+
 <dl>
   <dt>client_id</dt>
   <dd>Our client id given to us from the authenication provider when we signed up for being an authentication client.</dd>
@@ -58,10 +60,46 @@ tags: OAuth2
   
   <dt>state</dt>
   <dd>
-    Random string to prevent <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> attacks.
+    Random string to prevent <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> attacks. This is not a part of the SPiD implementation but we have added it to the redirect_uri.
   </dd>
 </dl>
 
 <h3>From authentication server</h3>
 
-...
+<p>
+  After the user has logged in and authorized us he or she is redirected back to us on the redirect URL specified in the to authentication server. 
+  The url contains these parameters:
+</p>
+
+<dl>
+  <dt></dt>
+  <dd></dd>
+
+  <dt></dt>
+  <dd></dd>
+
+</dl>
+
+=> failure and cancel
+
+This information is used to ask the authentication server for all mighty authentication token which can be used to get access to services/endpoints on behalf of the user. 
+We ask the authentication server if we can get an access token with this request:
+
+<code>
+  https://authentication.server/authenticate/path?parameters
+</code>
+
+With these parameters:
+
+<dl>
+  <dt></dt>
+  <dd></dd>
+
+  <dt></dt>
+  <dd></dd>
+
+</dl>
+
+The server can respond with success or failure.
+
+
