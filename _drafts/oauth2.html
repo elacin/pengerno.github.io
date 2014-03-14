@@ -1,0 +1,67 @@
+---
+layout: page
+title: OAuth2 - Web Application Authentication
+categories: security
+tags: OAuth2
+---
+
+<h2>Backgroud</h2>
+<p>
+  We are in the middle of implementing <a href="http://oauth.net/2">OAuth 2</a> towards <a href="http://www.schibstedpayment.no">SPiD</a>.
+  This means that we have to learn the OAuth2 Protocol. 
+  We could have used the basic <a href="https://github.com/schibsted/sdk-java">SPiD Java API</a> but it's not really Scala friendly and it includes a lot of dependencies.
+  On the other side we believe that you should understand the basis of the protocols we are using. 
+  That being HTTP, OAuth2, SOAP, REST and others.
+</p>
+
+<h2>Protocol</h2>
+<p>
+  There are several different uses of the OAuth2 protocol. 
+  We are a server based web application so we focus on that part of the protocol.
+</p>
+
+<p>
+  There are basically two things that happens in the authentication part of the protocol on our side of the interaction.
+</p>
+
+<ol>
+  <li>To authentication server - Making the user go the authenication server with an authentication request.</li>
+  <li>From authentication server - Handling users that are redirected to us with access information from the authentication server.</li>
+</ol>
+
+<h3>To authentication server</h3>
+<p>
+  In some way we need to get the users client to go to the autentication server with a few parameters in the url.
+  We can create a link directly on a webpage to the authentication server with the correct info or we can 
+  make an link to our own site that redirects the user to the authentication server with the correct parameters.
+  The url should look like:
+</p>
+
+<code>
+  https://authentication.server/login/path?parameters
+</code>
+  
+<dl>
+  <dt>client_id</dt>
+  <dd>Our client id given to us from the authenication provider when we signed up for being an authentication client.</dd>
+
+  <dt>redirect_uri</dt>
+  <dd>
+    The URL in our application where users will be sent to after the authentication. 
+    That means step 2: From the authentication server which we will describe later.
+  </dd>
+  
+  <dt>scope</dt>
+  <dd>
+    The amount of info we want access after user in authorized. Is only handled the first time the user authorizes us.
+  </dd>
+  
+  <dt>state</dt>
+  <dd>
+    Random string to prevent <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> attacks.
+  </dd>
+</dl>
+
+<h3>From authentication server</h3>
+
+...
