@@ -18,7 +18,7 @@ body > header h1{
 }
 
 body > header img{
-  max-height: 50px;
+  height: 30px;
 }
 
 .container{
