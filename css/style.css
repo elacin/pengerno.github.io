@@ -17,6 +17,10 @@ body > header h1{
   line-height: 60px
 }
 
+body > header img{
+  max-height: 50px;
+}
+
 .container{
   margin: 0 auto;
   max-width: 1040px;
