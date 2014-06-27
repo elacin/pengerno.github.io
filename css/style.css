@@ -8,6 +8,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3 {
+  font-family: 'Roboto Slab', Arial, sans-serif; 
+}
+
 body > header{
   height: 60px;
   color: #FFF;
