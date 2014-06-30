@@ -25,6 +25,10 @@ body > header h1{
   line-height: 60px
 }
 
+body > header a{
+  color: #FFF;
+}
+
 body > header img{
   height: 30px;
 }
