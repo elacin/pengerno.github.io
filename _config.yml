@@ -1,3 +1,5 @@
+markdown: kramdown
+
 authors:
   skytteren:
     name: Stein Kåre Skytteren
