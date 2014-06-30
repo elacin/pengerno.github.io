@@ -4,21 +4,21 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  <title>skytteren.no</title>
- <link href="http://skytteren.no/atom.xml" rel="self"/>
- <link href="http://skytteren.no/"/>
+ <link href="http://pengerno.github.io/atom.xml" rel="self"/>
+ <link href="http://pengerno.github.io/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://skytteren.no</id>
+ <id>http://pengerno.github.io</id>
  <author>
-   <name>Stein Kåre Skytteren</name>
-   <email>sk@skytteren.no</email>
+   <name>Penger.no</name>
+   <email>kunderservice@penger.no</email>
  </author>
 
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="http://skytteren.no{{ post.url }}"/>
+   <link href="http://pengerno.github.io{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://skytteren.no{{ post.id }}</id>
+   <id>http://pengerno.github.io/{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}
