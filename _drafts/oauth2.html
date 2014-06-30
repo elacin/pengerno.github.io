@@ -26,7 +26,7 @@ tags: OAuth2
 
 <ol>
   <li>To authentication server - Making the user go the authenication server with an authentication request.</li>
-  <li>From authentication server - Handling users that are redirected to us with access information from the authentication server.</li>
+  <li>From authentication server - Handling when the user is redirected to us with access information from the authentication server.</li>
 </ol>
 
 <h3>To authentication server</h3>
@@ -55,12 +55,16 @@ The parameters are:
   
   <dt>scope</dt>
   <dd>
-    The amount of info we want access after user in authorized. Is only handled the first time the user authorizes us.
+    The amount of info we want access after user in authorized. 
+    Is only handled the first time the user authorizes us.
+    This is NOT used by SPiD. All the scoping is handled in the merchant administration of SPiD.
   </dd>
   
   <dt>state</dt>
   <dd>
-    Random string to prevent <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> attacks. This is not a part of the SPiD implementation but we have added it to the redirect_uri.
+    Random string to prevent <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> attacks. 
+    This is not a part of the SPiD implementation but we have added it to the redirect_uri. 
+    That means that we can be sure that the redirect back to us isn't created through an CSRF.
   </dd>
 </dl>
 
@@ -80,26 +84,57 @@ The parameters are:
 
 </dl>
 
-=> failure and cancel
+<p>
+  Failure and cancel have their own redirect urls. 
+  It is important to pay attention to these.
+</p>
 
-This information is used to ask the authentication server for all mighty authentication token which can be used to get access to services/endpoints on behalf of the user. 
-We ask the authentication server if we can get an access token with this request:
+<p>
+  This information is used to ask the authentication server for all mighty authentication token which can be used to get access to services/endpoints on behalf of the user. 
+  We ask the authentication server if we can get an access token with this request:
+</p>
 
 <code>
   https://authentication.server/authenticate/path?parameters
 </code>
 
-With these parameters:
+<p>
+  With these parameters:
+</p>
 
 <dl>
-  <dt></dt>
-  <dd></dd>
+  <dt>client_id</dt>
+  <dd>The client ID that identifies our service.</dd>
 
-  <dt></dt>
-  <dd></dd>
+  <dt>client_secret</dt>
+  <dd>This secret authenticates us. It should not be shared with anyone.</dd>
 
+  <dt>code</dt>
+  <dd>The code is included as a parameter in the redirect from the authentication to us.</dd>
+  
+  <dt>redirect_uri</dt>
+  <dd>Event though this seams redundant, it is required for the authentication server in order to give us the access token we need.</dt>
+  
 </dl>
 
-The server can respond with success or failure.
+<p>
+  The server can respond with success or failure.
+  Success contains:
+</p>
+
+<dl>
+  <dt>client_id</dt>
+  <dd>The client ID that identifies our service.</dd>
+
+  <dt>client_secret</dt>
+  <dd>This secret authenticates us. It should not be shared with anyone.</dd>
+
+  <dt>code</dt>
+  <dd>The code is included as a parameter in the redirect from the authentication to us.</dd>
+  
+  <dt>redirect_uri</dt>
+  <dd>Event though this seems redundant, it is required for the authentication server in order to give us the access token we need.</dt>
+ 
+</dl>
 
 
