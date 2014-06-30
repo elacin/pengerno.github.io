@@ -5,14 +5,11 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
   </head>
   <body>
-    <header>
+    <header class="container">
       <h1>labs<img src="http://blog.penger.no/wp-content/themes/penger/assets/images/logo-penger.png" alt="Penger.no"></h1>
       <a href="http://github.com/pengerno"><i class="fa fa-github-square"></i></a>
     </header>
-	</div>
-
-</header>
-    <section>
+    <section class="container">
       <h1>{{ page.title }}</h1>
       <div>
         <h3>Tags</h3>
@@ -29,7 +26,7 @@
       
       {{ content }}
     </section>
-    <aside>
+    <aside class="container">
       <h2>Blog posts</h2>
       <ul class="posts">
         {% for post in site.posts %}
@@ -37,7 +34,7 @@
         {% endfor %}
       </ul>
     </aside>
-    <footer>
+    <footer class="container">
     </footer>
   </body>
 </html>
