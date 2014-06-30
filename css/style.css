@@ -18,6 +18,8 @@ body > header{
   text-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
   background-color: #46917f; 
   font-family: 'Roboto Slab', Arial, sans-serif;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 body > header h1{
