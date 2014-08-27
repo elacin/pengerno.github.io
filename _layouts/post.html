@@ -27,9 +27,11 @@
       
       {% assign author = site.authors[page.author] %}
       <p class="byline">
-      	by {{ author.name }}
+          <img src="https://secure.gravatar.com/avatar/{{author.gravatar}}.png">
+          {{ author.name }}
+          <a href="https://github.com/{{ author.github }}">[github]</a>
       </p>
-      
+
       {{ content }}
       {% include comments.html %}
     </section>

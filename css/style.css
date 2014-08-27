@@ -47,6 +47,10 @@ section{
 
 a {
   color: #46917f;
+}
 
-
+.byline{
+  /*background-color: #f1f1f1;*/
+  background-color: #EBF1EF;
+  width: 300px;
 }
